@@ -19,9 +19,9 @@ namespace RadioApp.Controllers
         {
             var p3ChannelId = "164";
 
-            //var response = await _radioService.GetJsonRadioPrograms();
+            var response = await _radioService.GetJsonRadioPrograms();
 
-            //var listOfP3Programs = await _radioService.GetProgramsFromChannelIdAsync(p3ChannelId);
+            var listOfP3Programs = await _radioService.GetProgramsFromChannelIdAsync(p3ChannelId);
 
             List<ChannelViewModel> channelList = new List<ChannelViewModel>
             {

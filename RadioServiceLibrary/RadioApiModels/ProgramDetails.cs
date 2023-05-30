@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace RadioServiceLibrary.RadioApiModels
 {
-    public class RadioProgram
+    internal class ProgramDetails
     {
-        public int Id { get; set; } //hämtas
-        public string Title { get; set; } //hämtas
-        public ProgramDetails Details { get; set; }
     }
 }

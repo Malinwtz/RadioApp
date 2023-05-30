@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using RadioServiceLibrary.RadioApiModels;
 using RadioServiceLibrary.Services.Interfaces;
-using System.Xml.Serialization;
+
 
 namespace RadioServiceLibrary.Services
 {
@@ -24,8 +24,9 @@ namespace RadioServiceLibrary.Services
 
         public async Task<List<RadioProgram>> GetProgramsFromChannelIdAsync(string channelId)
         {//164 = p3
-            string apiUrl = $"https://api.sr.se/api/v2/programs/index?channelid=164&programcategoryid=133";
+           // string apiUrl = $"https://api.sr.se/api/v2/programs/index?channelid=164&programcategoryid=133";
             //string apiUrl = $"https://api.sr.se/api/v2/programs/index?channelid={channelId}&programcategoryid=133";
+             string apiUrl = $"https://api.sr.se/api/v2/programs/index?channelid=164&programcategoryid=133&format=json";
 
             var response = await _httpClient.GetAsync(apiUrl);
 

@@ -26,7 +26,7 @@ namespace RadioServiceLibrary.Services
         {//164 = p3
            // string apiUrl = $"https://api.sr.se/api/v2/programs/index?channelid=164&programcategoryid=133";
             //string apiUrl = $"https://api.sr.se/api/v2/programs/index?channelid={channelId}&programcategoryid=133";
-             string apiUrl = $"https://api.sr.se/api/v2/programs/index?channelid=164&programcategoryid=133&format=json";
+             string apiUrl = $"https://api.sr.se/api/v2/programs/index?channelid={channelId}&programcategoryid=133&format=json";
 
             var response = await _httpClient.GetAsync(apiUrl);
 
@@ -40,6 +40,8 @@ namespace RadioServiceLibrary.Services
             // If the API call fails, handle the error accordingly
             return null;
         }
+
+
         public async Task<List<RadioProgram>> GetJsonRadioPrograms()
         {
             using var client = new HttpClient();

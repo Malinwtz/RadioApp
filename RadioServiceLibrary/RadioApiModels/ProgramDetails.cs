@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace RadioServiceLibrary.RadioApiModels
 {
-    internal class ProgramDetails
+    public class ProgramDetails
     {
+        public string Description { get; set; }
+        public string Image { get; set; }
     }
 }

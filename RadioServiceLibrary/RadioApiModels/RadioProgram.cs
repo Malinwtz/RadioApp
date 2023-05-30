@@ -9,7 +9,7 @@ namespace RadioServiceLibrary.RadioApiModels
     public class RadioProgram
     {
         public int Id { get; set; } //hämtas
-        public string Title { get; set; } //hämtas
+        public string Title { get; set; } 
         public ProgramDetails Details { get; set; }
     }
 }

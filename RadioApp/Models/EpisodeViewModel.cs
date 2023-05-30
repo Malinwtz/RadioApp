@@ -2,8 +2,10 @@
 {
     public class EpisodeViewModel
     {
-        public string Title { get; set; } //namnet på avsnittet
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public string AudioUrl { get; set; }
 
-     
     }
 }

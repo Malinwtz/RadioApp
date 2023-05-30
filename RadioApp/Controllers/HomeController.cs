@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RadioApp.Models;
 using RadioServiceLibrary.Services.Interfaces;
+using System;
 using System.Diagnostics;
 
 namespace RadioApp.Controllers
@@ -19,67 +20,24 @@ namespace RadioApp.Controllers
         {
             var allPrograms = await _radioService.GetAllProgramsAsync();
 
-            
-
-            List<ChannelViewModel> channelList = new List<ChannelViewModel>
+            var programViewModels = allPrograms.Select(program => new ProgramViewModel
             {
-                new ChannelViewModel
+                Id = program.Id,
+                Name = program.Name,
+                Description = program.Description,
+                ProgramImage = program.ProgramImage,
+                LatestEpisodes = program.LatestEpisodes.Select(episode => new EpisodeViewModel
                 {
-                    Title ="P3",
-                    Programs = new List<ProgramViewModel>
-                    {
-                        new ProgramViewModel
-                        {
-                            Title ="Tankesmedjan",
-                            Episodes = new List<EpisodeViewModel>
-                            {
-                                new EpisodeViewModel{ Title = "avsnitt1"},
-                                new EpisodeViewModel{ Title = "avsnitt2"},
-                                new EpisodeViewModel{ Title = "avsnitt3"},
-                            }   
-                        },
-                        new ProgramViewModel
-                        {
-                            Title = "Dokumentär",
-                            Episodes = new List<EpisodeViewModel>
-                            {
-                                new EpisodeViewModel{ Title = "avsnitt1"},
-                                new EpisodeViewModel{ Title = "avsnitt2"},
-                                new EpisodeViewModel{ Title = "avsnitt3"},
-                            }
-                        }
-                    },                   
-                },
-                new ChannelViewModel
-                {
-                    Title = "P1",
-                    Programs = new List<ProgramViewModel>
-                    {
-                        new ProgramViewModel
-                        {
-                            Title ="Tankesmedjan",
-                            Episodes = new List<EpisodeViewModel>
-                            {
-                                new EpisodeViewModel{ Title = "avsnitt1"},
-                                new EpisodeViewModel{ Title = "avsnitt2"},
-                                new EpisodeViewModel{ Title = "avsnitt3"},
-                            }
-                        },
-                        new ProgramViewModel
-                        {
-                            Title = "Dokumentär",
-                            Episodes = new List<EpisodeViewModel>
-                            {
-                                new EpisodeViewModel{ Title = "avsnitt1"},
-                                new EpisodeViewModel{ Title = "avsnitt2"},
-                                new EpisodeViewModel{ Title = "avsnitt3"},
-                            }
-                        }
-                    },
-                }
-            };
+                    Id = episode.Id,
+                    Title = episode.Title,
+                    Description = episode.Description,
+                    AudioUrl = episode.AudioUrl
+                }).ToList()
+            }).ToList();
 
-            return View(channelList);
+
+
+            return View(programViewModels);
         }
 
         public IActionResult Privacy()

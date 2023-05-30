@@ -1,11 +1,17 @@
-﻿@model List<ChannelViewModel>
+﻿@model List<ProgramViewModel>
 @{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
 
-    @foreach(var channel in Model)
+    @foreach(var program in Model)
+    {
+        <div>@program.Name</div>
+    }
+
+
+  @*  @foreach(var channel in Model)
     {
         <div>@channel.Title</div>
         @foreach (var program in channel.Programs)
@@ -16,6 +22,6 @@
                 <div>@episode.Title</div>
             }
         }
-    }
+    }*@
 
 </div>

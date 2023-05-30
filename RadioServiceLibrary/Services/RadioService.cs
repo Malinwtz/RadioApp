@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using RadioServiceLibrary.RadioApiModels;
 using RadioServiceLibrary.Services.Interfaces;
+using System.Xml.Serialization;
 
 namespace RadioServiceLibrary.Services
 {

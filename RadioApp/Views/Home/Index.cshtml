@@ -3,29 +3,32 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
+<div class="container text-center">
 
-    @foreach(var program in Model)
+    @foreach (var program in Model)
     {
-        <div>@program.Name</div>
-        <div>@program.Channel.Name</div>
-        <div> </div>
+        <div class="program-box">
+            <div class="image-box">
+                <img class="image" src="@program.ProgramImage">
+            </div>
 
+            <div class="info">
+                <div class="header">@program.Name</div>
+                <div class="channel">Kanal: @program.Channel.Name</div>
+                <div class="description">@program.Description</div>
+                <div class="description">De tre senaste avsnitten:</div>
+                @foreach (var episode in program.LatestEpisodes)
+                {
+                    <div class="episodes">                    
+                        <div class="episode-title">@episode.Title</div>
+                        <div class="episode-description">@episode.Description</div>
+                        <div class="episode-audio">@episode.AudioUrl</div>
+                    </div>                 
+                }
+            </div>
+        </div>
 
     }
 
-
-  @*  @foreach(var channel in Model)
-    {
-        <div>@channel.Title</div>
-        @foreach (var program in channel.Programs)
-        {
-            <div>@program.Title</div>
-            @foreach(var episode in program.Episodes)
-            {
-                <div>@episode.Title</div>
-            }
-        }
-    }*@
 
 </div>

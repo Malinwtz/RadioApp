@@ -16,3 +16,56 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+
+
+.program-box{
+    height: 60vh;
+    margin: 2rem 0;
+    display: flex;
+    justify-content:space-around;
+}
+   
+    .program-box .image-box {
+        height: 100%;
+        width: auto;
+    }
+        .program-box .image-box .image {           
+            height:100%;
+            width: auto;
+        }
+    .program-box .info {
+        width: 60%;
+        padding: 0 1rem;
+        background-color: #faf7f7;
+    }
+        .program-box .info .header{
+            display:grid;
+            grid-area: 1fr 1fr 1fr;
+            font-size: 1.75em;
+            font-weight: 900
+        }
+        .program-box .info .channel {
+            font-size: 1em;
+            font-weight: 900;
+        }
+        .program-box .info .description {
+            font-size: 1em;
+            font-weight: 400;
+            padding: 0 1rem 1rem 1rem;
+        }
+        .program-box .info .episodes {
+            text-align:left;
+        }
+            .program-box .info .episodes .episode-title {
+                font-size: 0.75em;
+                font-weight: 700;
+            }
+            .program-box .info .episodes .episode-description {
+                font-size: 0.75em;
+                font-weight: 200;
+            }
+            .program-box .info .episodes .episode-audio {
+                font-size: 0.75em;
+                font-weight: 200;
+            }

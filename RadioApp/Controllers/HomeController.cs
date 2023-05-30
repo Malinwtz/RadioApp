@@ -15,10 +15,10 @@ namespace RadioApp.Controllers
 
         public IActionResult Index()
         {
-            List<RadioInfoViewModel> radioInfoViewModels = new List<RadioInfoViewModel>
+            List<ProgramViewModel> radioInfoViewModels = new List<ProgramViewModel>
             {
-                new RadioInfoViewModel{Name ="ingrid"},
-                new RadioInfoViewModel{Name ="tage"}
+                new ProgramViewModel{Name ="ingrid"},
+                new ProgramViewModel{Name ="tage"}
             };
           
             return View(radioInfoViewModels);

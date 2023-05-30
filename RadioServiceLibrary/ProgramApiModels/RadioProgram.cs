@@ -14,6 +14,7 @@ namespace RadioServiceLibrary.ProgramApiModels
         public string ProgramImage { get; set; }
         public string Description { get; set; }
         public Channel Channel { get; set; }
+        public List<Episode> LatestEpisodes { get; set; }
 
     }
 }

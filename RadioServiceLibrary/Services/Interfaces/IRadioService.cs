@@ -11,6 +11,5 @@ namespace RadioServiceLibrary.Services.Interfaces
     {
 
         Task<List<RadioProgram>> GetAllProgramsAsync();
-      //  Task<List<RadioProgram>> GetJsonRadioPrograms();
     }
 }

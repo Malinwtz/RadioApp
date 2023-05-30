@@ -36,6 +36,12 @@ namespace RadioServiceLibrary.Services
                 try
                 {
                     var programResponse = JsonConvert.DeserializeObject<ProgramResponse>(json);
+
+                    foreach (var program in programResponse.Programs)
+                    {
+                        program.LatestEpisodes = await GetLatestEpisodesAsync(program.Id);
+                    }
+
                     return programResponse?.Programs;
                 }
                 catch (JsonReaderException)
@@ -51,5 +57,30 @@ namespace RadioServiceLibrary.Services
         }
 
 
+        private async Task<List<Episode>> GetLatestEpisodesAsync(int programId)
+        {
+            string apiUrl = $"https://api.sr.se/api/v2/episodes/index?programid={programId}&format=json&size=3&orderdesc=publicationdate";
+
+            var response = await _httpClient.GetAsync(apiUrl);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var json = await response.Content.ReadAsStringAsync();
+                try
+                {
+                    var episodeResponse = JsonConvert.DeserializeObject<EpisodeResponse>(json);
+                    return episodeResponse?.Episodes;
+                }
+                catch (JsonReaderException)
+                {
+                    Console.WriteLine("Something went wrong while deserializing the response.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("API request failed with status code: " + response.StatusCode);
+            }
+            return null;
+        }
     }
 }

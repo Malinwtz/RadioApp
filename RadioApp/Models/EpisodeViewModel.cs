@@ -2,7 +2,8 @@
 {
     public class EpisodeViewModel
     {
-        public string Name { get; set; } //namnet på avsnittet
+        public string Title { get; set; } //namnet på avsnittet
+
      
     }
 }

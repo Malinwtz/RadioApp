@@ -15,13 +15,67 @@ namespace RadioApp.Controllers
 
         public IActionResult Index()
         {
-            List<ProgramViewModel> radioInfoViewModels = new List<ProgramViewModel>
+            List<ChannelViewModel> channelList = new List<ChannelViewModel>
             {
-                new ProgramViewModel{Name ="ingrid"},
-                new ProgramViewModel{Name ="tage"}
+                new ChannelViewModel
+                {
+                    Title ="P3",
+                    Programs = new List<ProgramViewModel>
+                    {
+                        new ProgramViewModel
+                        {
+                            Title ="Tankesmedjan",
+                            Episodes = new List<EpisodeViewModel>
+                            {
+                                new EpisodeViewModel{ Title = "avsnitt1"},
+                                new EpisodeViewModel{ Title = "avsnitt2"},
+                                new EpisodeViewModel{ Title = "avsnitt3"},
+                            }   
+                        },
+                        new ProgramViewModel
+                        {
+                            Title = "Dokumentär",
+                            Category = "Humor",
+                            Episodes = new List<EpisodeViewModel>
+                            {
+                                new EpisodeViewModel{ Title = "avsnitt1"},
+                                new EpisodeViewModel{ Title = "avsnitt2"},
+                                new EpisodeViewModel{ Title = "avsnitt3"},
+                            }
+                        }
+                    },                   
+                },
+                new ChannelViewModel
+                {
+                    Title = "P1",
+                    Programs = new List<ProgramViewModel>
+                    {
+                        new ProgramViewModel
+                        {
+                            Title ="Tankesmedjan",
+                            Episodes = new List<EpisodeViewModel>
+                            {
+                                new EpisodeViewModel{ Title = "avsnitt1"},
+                                new EpisodeViewModel{ Title = "avsnitt2"},
+                                new EpisodeViewModel{ Title = "avsnitt3"},
+                            }
+                        },
+                        new ProgramViewModel
+                        {
+                            Title = "Dokumentär",
+                            Category = "Humor",
+                            Episodes = new List<EpisodeViewModel>
+                            {
+                                new EpisodeViewModel{ Title = "avsnitt1"},
+                                new EpisodeViewModel{ Title = "avsnitt2"},
+                                new EpisodeViewModel{ Title = "avsnitt3"},
+                            }
+                        }
+                    },
+                }
             };
-          
-            return View(radioInfoViewModels);
+
+            return View(channelList);
         }
 
         public IActionResult Privacy()

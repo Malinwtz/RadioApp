@@ -40,7 +40,11 @@ namespace RadioApp.Controllers
                 }).ToList()
             }).ToList();
 
-            return View(programViewModels);
+            var sortedPrograms = programViewModels.OrderByDescending(p => p.Channel.Name).ToList();
+
+            return View(sortedPrograms);
+
+            // return View(programViewModels);
         }
 
         public IActionResult Privacy()

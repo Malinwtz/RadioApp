@@ -1,7 +1,12 @@
+using RadioServiceLibrary.Services;
+using RadioServiceLibrary.Services.Interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddTransient<IRadioService, RadioService>();
 
 var app = builder.Build();
 

@@ -1,20 +1,28 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RadioApp.Models;
+using RadioServiceLibrary.Services.Interfaces;
 using System.Diagnostics;
 
 namespace RadioApp.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IRadioService radioService)
         {
             _logger = logger;
+            _radioService = radioService;
         }
-
-        public IActionResult Index()
+        private readonly ILogger<HomeController> _logger;
+        private readonly IRadioService _radioService;
+      
+        public async Task<IActionResult> Index()
         {
+            var p3ChannelId = "164";
+
+            var response = await _radioService.GetJsonRadioPrograms();
+
+            var listOfP3Programs = await _radioService.GetProgramsFromChannelIdAsync(p3ChannelId);
+
             List<ChannelViewModel> channelList = new List<ChannelViewModel>
             {
                 new ChannelViewModel
@@ -35,7 +43,6 @@ namespace RadioApp.Controllers
                         new ProgramViewModel
                         {
                             Title = "Dokumentär",
-                            Category = "Humor",
                             Episodes = new List<EpisodeViewModel>
                             {
                                 new EpisodeViewModel{ Title = "avsnitt1"},
@@ -63,7 +70,6 @@ namespace RadioApp.Controllers
                         new ProgramViewModel
                         {
                             Title = "Dokumentär",
-                            Category = "Humor",
                             Episodes = new List<EpisodeViewModel>
                             {
                                 new EpisodeViewModel{ Title = "avsnitt1"},

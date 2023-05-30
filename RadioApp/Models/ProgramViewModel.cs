@@ -3,7 +3,7 @@
     public class ProgramViewModel
     {       
         public string Channel { get; set; } //p1, p2, p3
-        public string Category { get; set; } //vilken kategori programmet tillhör
+        //public string Category { get; set; } //vilken kategori programmet tillhör
         public string Title { get; set; }
         public string Description { get; set; }
         public string Image { get; set; }

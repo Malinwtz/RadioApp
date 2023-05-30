@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace RadioServiceLibrary.RadioApiModels
 {
-    internal class Channel
+    public class ProgramResponse
     {
+        public List<RadioProgram> Programs { get; set; }
     }
 }

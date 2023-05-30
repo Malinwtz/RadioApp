@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RadioServiceLibrary.RadioApiModels
+namespace RadioServiceLibrary.ProgramApiModels
 {
     public class ProgramResponse
     {

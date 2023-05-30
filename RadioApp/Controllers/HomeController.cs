@@ -17,12 +17,9 @@ namespace RadioApp.Controllers
       
         public async Task<IActionResult> Index()
         {
-            var p1ChannelId = "";
-            var p3ChannelId = "164";          
+            var allPrograms = await _radioService.GetAllProgramsAsync();
 
-            //var response = await _radioService.GetJsonRadioPrograms();
-
-            var p3ProgramIdList = await _radioService.GetProgramsFromChannelIdAsync(p3ChannelId);
+            
 
             List<ChannelViewModel> channelList = new List<ChannelViewModel>
             {

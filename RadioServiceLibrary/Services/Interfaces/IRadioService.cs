@@ -1,4 +1,4 @@
-﻿using RadioServiceLibrary.RadioApiModels;
+﻿using RadioServiceLibrary.ProgramApiModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,7 @@ namespace RadioServiceLibrary.Services.Interfaces
     public interface IRadioService
     {
 
-        Task<List<RadioProgram>> GetProgramsFromChannelIdAsync(string channelId);
-        Task<List<RadioProgram>> GetJsonRadioPrograms();
+        Task<List<RadioProgram>> GetAllProgramsAsync();
+      //  Task<List<RadioProgram>> GetJsonRadioPrograms();
     }
 }

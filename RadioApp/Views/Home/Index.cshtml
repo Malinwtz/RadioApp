@@ -1,0 +1,13 @@
+﻿@model List<RadioInfoViewModel>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+
+    @foreach(var vm in Model)
+    {
+        <div>@vm.Name</div>
+    }
+
+</div>

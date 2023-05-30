@@ -26,6 +26,11 @@ namespace RadioApp.Controllers
                 Name = program.Name,
                 Description = program.Description,
                 ProgramImage = program.ProgramImage,
+                Channel = new ChannelViewModel
+                {
+                    Id = program.Channel.Id,
+                    Name = program.Channel.Name,
+                },
                 LatestEpisodes = program.LatestEpisodes.Select(episode => new EpisodeViewModel
                 {
                     Id = episode.Id,
@@ -34,8 +39,6 @@ namespace RadioApp.Controllers
                     AudioUrl = episode.AudioUrl
                 }).ToList()
             }).ToList();
-
-
 
             return View(programViewModels);
         }

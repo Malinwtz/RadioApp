@@ -24,8 +24,6 @@ namespace RadioServiceLibrary.Services
 
         public async Task<List<RadioProgram>> GetAllProgramsAsync()
         {
-            // string apiUrl = $"https://api.sr.se/api/v2/programs/index?channelid={channelId}&programcategoryid=133&format=json";
-          //  string apiUrl = $"https://api.sr.se/api/v2/programs/index?programcategoryid=133&format=json";
             string apiUrl = $"https://api.sr.se/api/v2/programs/index?programcategoryid=133&format=json&pagination=false";
 
             var response = await _httpClient.GetAsync(apiUrl);

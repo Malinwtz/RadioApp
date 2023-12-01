@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Mapster;
+using Microsoft.AspNetCore.Mvc;
 using RadioApp.Models;
 using RadioServiceLibrary.Services.Interfaces;
 using System;
@@ -20,25 +21,27 @@ namespace RadioApp.Controllers
         {
             var allPrograms = await _radioService.GetAllProgramsAsync();
 
-            var programViewModels = allPrograms.Select(program => new ProgramViewModel
-            {
-                Id = program.Id,
-                Name = program.Name,
-                Description = program.Description,
-                ProgramImage = program.ProgramImage,
-                Channel = new ChannelViewModel
-                {
-                    Id = program.Channel.Id,
-                    Name = program.Channel.Name,
-                },
-                LatestEpisodes = program.LatestEpisodes.Select(episode => new EpisodeViewModel
-                {
-                    Id = episode.Id,
-                    Title = episode.Title,
-                    Description = episode.Description,
-                    AudioUrl = episode.AudioUrl
-                }).ToList()
-            }).ToList();
+            var programViewModels = allPrograms.Adapt<List<ProgramViewModel>>();
+
+            //var programViewModels = allPrograms.Select(program => new ProgramViewModel
+            //{
+            //    Id = program.Id,
+            //    Name = program.Name,
+            //    Description = program.Description,
+            //    ProgramImage = program.ProgramImage,
+            //    Channel = new ChannelViewModel
+            //    {
+            //        Id = program.Channel.Id,
+            //        Name = program.Channel.Name,
+            //    },
+            //    LatestEpisodes = program.LatestEpisodes.Select(episode => new EpisodeViewModel
+            //    {
+            //        Id = episode.Id,
+            //        Title = episode.Title,
+            //        Description = episode.Description,
+            //        AudioUrl = episode.AudioUrl
+            //    }).ToList()
+            //}).ToList();
 
             var sortedPrograms = programViewModels.OrderByDescending(p => p.Channel.Name).ToList();
 

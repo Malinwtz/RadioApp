@@ -1,3 +1,5 @@
+using Mapster;
+using RadioApp.Models;
 using RadioServiceLibrary.Services;
 using RadioServiceLibrary.Services.Interfaces;
 
@@ -7,6 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddTransient<IRadioService, RadioService>();
+
+
 
 var app = builder.Build();
 

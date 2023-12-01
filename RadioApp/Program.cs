@@ -10,8 +10,6 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddTransient<IRadioService, RadioService>();
 
-
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

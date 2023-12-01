@@ -1,4 +1,5 @@
 ﻿using Mapster;
+using MapsterMapper;
 using Microsoft.AspNetCore.Mvc;
 using RadioApp.Models;
 using RadioServiceLibrary.ProgramApiModels;
@@ -54,8 +55,11 @@ namespace RadioApp.Controllers
             //config.ForType<RadioProgram, ProgramViewModel>() 
             //    .Map(dest => dest.Name, src => $"{src.Name} {src.Channel}");
 
-            var programViewModels = allPrograms.Adapt<List<ProgramViewModel>>();
+            //// Går också att mappa om med följande kod:
+            //IMapper mapper = new Mapper();
+            //var response = mapper.Map<IRadioService>(allPrograms);
 
+            var programViewModels = allPrograms.Adapt<List<ProgramViewModel>>();
             //var programViewModels = allPrograms.Select(program => new ProgramViewModel
             //{
             //    Id = program.Id,
